@@ -6,8 +6,8 @@ name: caelestia-ublue
 description: This is my personal OS image.
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/silverblue-main
-image-version: 42 # latest is also supported if you want new updates ASAP
+base-image: ghcr.io/wayblueorg/hyprland
+image-version: 44 # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
@@ -21,10 +21,16 @@ modules:
     repos:
       copr:
         - atim/starship
+        - errornointernet/quickshell
+        - celestelove/app2unit
+        - randalthor17/caelestia-fedora
+        - craftidore/wayblueorg-hyprland
     install:
       packages:
-        - micro
-        - starship
+        - caelestia-fedora
+        - caelestia-cli
+        - caelestia-shell
+        - caelestia-fedora-fonts
     remove:
       packages:
         # example: removing firefox (in favor of the flatpak)
@@ -38,8 +44,8 @@ modules:
         scope: system
         # If no repo information is specified, Flathub will be used by default
         install: # system flatpaks we want all users to have and not remove
-          - org.mozilla.firefox
-          - org.gnome.Loupe
-      - scope: user # Also add Flathub user repo, but no user packages
+          - app.zen_browser.zen
+          - com.discordapp.Discord
+          - com.spotify.Client
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully

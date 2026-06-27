@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Caelestia Environment Initialization
+Exec=fish -c "if not test -d ~/.config/hypr; caelestia-fedora-setup --noconfirm; end"
+Icon=system-run
+Terminal=false
+NoDisplay=true
